@@ -12,7 +12,7 @@ int main(int argc, char *argv[]) {
     int n = atoi(argv[1]);
     if (n <= 0) {
         fprintf(stderr, "O número de processos deve ser positivo\n");
-        return 1;
+        return 2;
     }
 
     for (int i = 0; i < n; i++) {
@@ -20,12 +20,12 @@ int main(int argc, char *argv[]) {
         
         if (pid < 0) {
             perror("fork falhou");
-            break;
+            exit(EXIT_FAILURE);
         } else if (pid == 0) {
             // Processo filho
             execlp("./hello", "hello", NULL);
             perror("exec falhou");
-            break;
+            exit(EXIT_FAILURE);
         }
     }
 
