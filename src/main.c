@@ -20,9 +20,7 @@ int main(int argc, char *argv[]) {
         
         if (pid < 0) {
             perror("fork falhou");
-            printf("teste antes do exit");
-            exit(1);
-            printf("teste pos exit");
+            /*exit(1);*/
             break;
         } else if (pid == 0) {
             // Processo filho
