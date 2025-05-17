@@ -20,13 +20,12 @@ int main(int argc, char *argv[]) {
         
         if (pid < 0) {
             perror("fork falhou");
-            /*exit(1);*/
             break;
         } else if (pid == 0) {
             // Processo filho
             execlp("./hello", "hello", NULL);
             perror("exec falhou");
-            exit(1);
+            break;
         }
     }
 
