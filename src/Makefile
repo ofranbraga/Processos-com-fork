@@ -1,10 +1,10 @@
-CC = gcc
-CFLAGS = -Wall -Wextra -pedantic -std=c11
+all: main hello
 
-all: fork_exec
+main: main.c
+	gcc -o main main.c
 
-fork_exec: fork_exec.c
-	$(CC) $(CFLAGS) -o fork_exec fork_exec.c
+hello: hello.c
+	gcc -o hello hello.c
 
 clean:
-	rm -f fork_exec
+	rm -f main hello
